@@ -9,6 +9,8 @@ public class MoveCube : MonoBehaviour
     public KeyCode upKey;
     public KeyCode downKey;
     public Color color;
+    public float speed;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,14 +24,14 @@ public class MoveCube : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKey(upKey))
+        if (Input.GetKey(upKey) && transform.position.y < 5)
         {
-            rigidbody2D.velocity = Vector2.up;
+            rigidbody2D.velocity = Vector2.up * speed;
         }
-        else if(Input.GetKey(downKey))
+        else if(Input.GetKey(downKey) && transform.position.y > -5)
         {
 
-            rigidbody2D.velocity = Vector2.down;
+            rigidbody2D.velocity = Vector2.down * speed;
         }
         else
         {
@@ -37,15 +39,6 @@ public class MoveCube : MonoBehaviour
         }
 
 
-        /*
-         * create a variable to store color
-         * try to apply different colors to different players
-         * 
-         * 
-         * 
-         * 
-         * 
-         */
         
     }
 }
